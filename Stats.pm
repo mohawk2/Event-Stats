@@ -1,10 +1,10 @@
 use strict;
 package Event::Stats;
 use Carp;
-use Event 0.40;
+use Event 0.41;
 use base ('Exporter', 'DynaLoader');
 use vars qw($VERSION @EXPORT_OK);
-$VERSION = '0.52';
+$VERSION = '0.53';
 @EXPORT_OK = qw(round_seconds idle_time total_time);
 
 __PACKAGE__->bootstrap($VERSION);
@@ -33,7 +33,7 @@ XXX
 
 =head1 DESCRIPTION
 
-XXX
+Instrument the Event module in order to gather statistics.
 
 =head1 API
 

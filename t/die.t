@@ -7,11 +7,11 @@ use Event::Stats;
 $Event::DIED = sub {}; #ignore!
 
 my $e;
-$e = Event->idle(e_cb => sub {
+$e = Event->idle(cb => sub {
 		     sleep 1; 
 		     die 'skip';
 		 });
-Event->timer(e_interval => .2, e_cb => sub {
+Event->timer(interval => .2, cb => sub {
 		 my $e = shift;
 		 unloop if ($e->w->stats(15))[0];
 	     });

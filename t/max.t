@@ -13,13 +13,13 @@ $Event::DIED = sub {
 };
 
 my $runs=0;
-Event->timer(e_desc => "stuck", e_interval => .1, e_cb => sub {
+Event->timer(desc => "stuck", interval => .1, cb => sub {
 		 if ($sub and ++$runs > 25) {
 		     sleep 1;
 		 }
 	     });
-Event->timer(e_desc => "nest", e_after => 0, e_interval => .1,
-	     e_cb => sub {
+Event->timer(desc => "nest", after => 0, interval => .1,
+	     cb => sub {
 		 return if $sub;
 		 local $sub=1;
 		 loop;

@@ -8,7 +8,7 @@ use Event::Stats;
 
 my $runs=0;
 my $e;
-$e = Event->idle(e_desc => "yawn", e_cb => sub {
+$e = Event->idle(desc => "yawn", repeat => 1, cb => sub {
 		     ++$runs;
 		     sleep 1;
 		     unloop if ($e->stats(15))[0];

@@ -293,7 +293,7 @@ static void use_stats(int yes)
 	ev = (pe_watcher*) RollTimer;
 	EvREPEAT_on(ev);
 	sv_setpv(ev->desc, "Event::Stats");
-	ev->prio = PE_PRIO_NORMAL + 1;
+	ev->prio = PE_PRIO_NORMAL - 1;
 	ev->callback = (void*) pe_stat_roll_cb;
 	gettimeofday(&total_tm, 0);
 	/* pretend we are repeating so 'at' can be uninitialized */
