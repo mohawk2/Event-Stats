@@ -1,0 +1,16 @@
+1999-03-30  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Release 0.5.
+
+1999-03-29  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Reorganize lots of stuff.  Option to die if a callback takes too
+ 	long.
+
+1999-01-12  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Release 0.01.
+
+1998-12-30  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Count uncaught exceptions.

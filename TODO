@@ -1,0 +1,3 @@
+document API better
+
+gettimeofday isn't portable -- avoid it?
