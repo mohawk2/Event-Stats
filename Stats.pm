@@ -4,7 +4,7 @@ use Carp;
 use Event 0.53;
 use base ('Exporter', 'DynaLoader');
 use vars qw($VERSION @EXPORT_OK);
-$VERSION = '0.56';
+$VERSION = '0.6';
 @EXPORT_OK = qw(round_seconds idle_time total_time);
 
 __PACKAGE__->bootstrap($VERSION);

@@ -291,7 +291,7 @@ static void use_stats(int yes)
 	    RollTimer = GEventAPI->new_timer(0,0);
 	RollTimer->interval = newSVnv(PE_STAT_SECONDS);
 	ev = (pe_watcher*) RollTimer;
-	EvREPEAT_on(ev);
+	WaREPEAT_on(ev);
 	sv_setpv(ev->desc, "Event::Stats");
 	ev->prio = PE_PRIO_NORMAL - 1;
 	ev->callback = (void*) pe_stat_roll_cb;
