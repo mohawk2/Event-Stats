@@ -1,7 +1,7 @@
 #!./perl -w
 
 use Test; plan test => 2;
-use Event qw(loop unloop_all);
+use Event 0.37 qw(loop unloop_all);
 use Event::Stats;
 
 # $Event::DebugLevel = 3;
@@ -13,7 +13,7 @@ $e = Event->idle(e_reentrant => 0, e_cb => sub {
 		     $inside = 1; loop(1); $inside=0; });
 Event->timer(e_interval => .2, e_cb => sub { $ok=1 if $inside; sleep 1 });
 Event->timer(e_interval => .2, e_cb => sub {
-		 unloop_all if (shift->stats(15))[0];
+		 unloop_all if (shift->w->stats(15))[0];
 	     });
 
 Event::Stats::collect(1);

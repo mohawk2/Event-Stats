@@ -1,7 +1,7 @@
 # -*-perl-*-
 
 use Test; plan test => 2;
-use Event 0.32 qw(loop unloop unloop_all sleep);
+use Event 0.37 qw(loop unloop unloop_all sleep);
 use Event::Stats;
 
 # $Event::DebugLevel = 2;

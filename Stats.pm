@@ -1,20 +1,23 @@
 use strict;
 package Event::Stats;
 use Carp;
-use Event 0.33;
+use Event 0.40;
 use base ('Exporter', 'DynaLoader');
 use vars qw($VERSION @EXPORT_OK);
-$VERSION = '0.5';
+$VERSION = '0.52';
 @EXPORT_OK = qw(round_seconds idle_time total_time);
 
 __PACKAGE__->bootstrap($VERSION);
 
 sub enforce_max_callback_time {
-    my ($yes) = @_;
-    $SIG{ALRM} = sub {
-	Carp::confess("Event timed out")
-    } if $yes;
-    _enforce_max_callback_time($yes);
+    # a bit kludged
+    if (@_) {
+	my ($yes) = @_;
+	$SIG{ALRM} = sub { Carp::confess("Event timed out") } if $yes;
+	_enforce_max_callback_time($yes);
+    } else {
+	_enforcing_max_callback_time()
+    }
 }
 
 1;

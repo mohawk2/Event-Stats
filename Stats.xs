@@ -21,7 +21,7 @@ struct snap {
 static void snap_on(snap *sn)
 {
     assert(sn);
-    if (sn->live) warn("snap reinit");
+    /* if (sn->live) warn("snap reinit"); /**/
     gettimeofday(&sn->start, 0);
     sn->live = 1;
 }
@@ -234,7 +234,8 @@ static void pe_commit(void *vp, pe_watcher *wa)
 {
   snap *sn = (snap*) vp;
   /* warn("commit %x %x", vp, wa); /**/
-  alarm(0);
+  if (EnforceMaxCBTime)
+      alarm(0);
   if (wa && !wa->stats) {
     New(0, wa->stats, 1, pe_stat);
     pe_stat_init(wa->stats);
@@ -247,7 +248,8 @@ static void pe_abort(void *vp, pe_watcher *wa)
 {
   pe_run *run;
   pe_stat *st;
-  alarm(0);
+  if (EnforceMaxCBTime)
+      alarm(0);
   ((snap*)vp)->live=0;
   assert(wa);
   if (!wa->stats) {
@@ -286,12 +288,12 @@ static void use_stats(int yes)
 	pe_stat_init(&totalStats);
   
 	if (!RollTimer)
-	    RollTimer = GEventAPI->new_timer();
+	    RollTimer = GEventAPI->new_timer(0);
 	RollTimer->interval = newSVnv(PE_STAT_SECONDS);
 	ev = (pe_watcher*) RollTimer;
 	EvREPEAT_on(ev);
 	sv_setpv(ev->desc, "Event::Stats");
-	ev->priority = PE_PRIO_NORMAL + 1;
+	ev->prio = PE_PRIO_NORMAL + 1;
 	ev->callback = (void*) pe_stat_roll_cb;
 	gettimeofday(&total_tm, 0);
 	/* pretend we are repeating so 'at' can be uninitialized */
@@ -316,6 +318,13 @@ BOOT:
 	I_EVENT_API(HvNAME(stash));
 	GEventAPI->install_stats(&Myvtbl);
      }
+
+void
+_enforcing_max_callback_time()
+     PPCODE:
+{
+    XPUSHs(boolSV(EnforceMaxCBTime));
+}
 
 void
 _enforce_max_callback_time(yes)
@@ -395,7 +404,7 @@ stats(obj, sec)
 	PPCODE:
 	if (!Stats)
 		croak("Event::Stats are not enabled");
-	GEventAPI->decode_sv(obj, &THIS, 0);
+	THIS = (pe_watcher*) GEventAPI->unwrap_obj(obj);
 	if (THIS->stats)
 	  pe_stat_query(THIS->stats, sec, &ran, &die, &elapse);
 	else

@@ -1,7 +1,7 @@
 #!./perl -w
 
 use Test; plan test => 1;
-use Event qw(loop unloop);
+use Event qw(loop unloop sleep);
 use Event::Stats;
 
 $Event::DIED = sub {}; #ignore!
@@ -12,7 +12,8 @@ $e = Event->idle(e_cb => sub {
 		     die 'skip';
 		 });
 Event->timer(e_interval => .2, e_cb => sub {
-		 unloop if (shift->stats(15))[0];
+		 my $e = shift;
+		 unloop if ($e->w->stats(15))[0];
 	     });
 
 Event::Stats::collect(1);

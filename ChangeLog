@@ -1,3 +1,17 @@
+1999-05-07  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Release 0.52.
+
+	* Sync with Event 0.40.
+
+1999-04-29  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Move all alarm(0) under if(EnforceMaxCBTime) !
+
+1999-04-15  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Sync with Event 0.37.
+
 1999-03-30  Joshua Pritikin  <joshua.pritikin@db.com>
 
 	* Release 0.5.
