@@ -288,7 +288,7 @@ static void use_stats(int yes)
 	pe_stat_init(&totalStats);
   
 	if (!RollTimer)
-	    RollTimer = GEventAPI->new_timer(0);
+	    RollTimer = GEventAPI->new_timer(0,0);
 	RollTimer->interval = newSVnv(PE_STAT_SECONDS);
 	ev = (pe_watcher*) RollTimer;
 	EvREPEAT_on(ev);
@@ -404,7 +404,7 @@ stats(obj, sec)
 	PPCODE:
 	if (!Stats)
 		croak("Event::Stats are not enabled");
-	THIS = (pe_watcher*) GEventAPI->unwrap_obj(obj);
+	THIS = (pe_watcher*) GEventAPI->sv_2watcher(obj);
 	if (THIS->stats)
 	  pe_stat_query(THIS->stats, sec, &ran, &die, &elapse);
 	else
