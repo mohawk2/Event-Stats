@@ -1,3 +1,9 @@
+1999-09-16  Joshua Pritikin  <joshua.pritikin@db.com>
+
+	* Release 0.56.
+
+	* Add Time::HiRes to PREREQ (schinder@pobox.com).
+
 1999-09-14  Joshua Pritikin  <joshua.pritikin@db.com>
 
 	* Release 0.55.
