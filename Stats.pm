@@ -4,7 +4,7 @@ use Carp;
 use Event 0.53;
 use base ('Exporter', 'DynaLoader');
 use vars qw($VERSION @EXPORT_OK);
-$VERSION = '0.6';
+$VERSION = '0.7';
 @EXPORT_OK = qw(round_seconds idle_time total_time);
 
 __PACKAGE__->bootstrap($VERSION);
@@ -79,7 +79,7 @@ mailing list!
 
 =head1 COPYRIGHT
 
-Copyright © 1999 Joshua Nathaniel Pritikin.  All rights reserved.
+Copyright © 1999, 2000 Joshua Nathaniel Pritikin.  All rights reserved.
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 

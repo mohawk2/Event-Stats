@@ -55,7 +55,6 @@ struct pe_stat {
   pe_run min[PE_STAT_I2];
 };
 
-static int Stats; /* make like refcnt XXX */
 static pe_stat totalStats;
 static pe_stat idleStats;
 static struct timeval total_tm;
@@ -267,6 +266,7 @@ static void pe_dtor(void *stats)
 static pe_event_stats_vtbl Myvtbl =
   { 0, pe_enter, pe_suspend, pe_resume, pe_commit, pe_abort, pe_dtor };
 
+static int Stats;
 static void use_stats(int yes)
 {
     int prev = Stats;
@@ -385,8 +385,8 @@ collect(yes)
 	int yes
 	CODE:
 {
-    RETVAL = Stats;
     use_stats(yes);
+    RETVAL = Stats;
 }
 	OUTPUT:
 	RETVAL
