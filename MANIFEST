@@ -10,3 +10,4 @@ t/die.t
 t/max.t
 t/nest.t
 t/stats.t
+META.yml                                 Module meta-data (added by MakeMaker)

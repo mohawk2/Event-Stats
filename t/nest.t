@@ -1,6 +1,6 @@
 #!./perl -w
 
-use Test; plan test => 1;
+use Test; plan test => 2;
 use Event 0.37 qw(loop unloop_all);
 use Event::Stats;
 
@@ -20,4 +20,6 @@ Event->timer(interval => .2, cb => sub {
 Event::Stats::collect(1);
 loop;
 
-ok join(',',$e->stats(15)), '/^\d,0,0\./';
+my @s = $e->stats(15);
+ok $s[1], 0;
+ok $s[2] < .1;  # expect a small amount of time
