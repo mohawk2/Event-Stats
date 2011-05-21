@@ -18,4 +18,7 @@ loop;
 
 my @s = $e->stats(15);
 ok abs($s[0] - $runs) <= 1;
-ok((abs($s[2] - $s[0]) < .1), 1, "$s[0] $s[2]");
+my $diff = abs($s[2] - $s[0]);
+if (!ok(($diff < .1))) {
+    warn "abs($s[2] - $s[0]) = $diff";
+}
