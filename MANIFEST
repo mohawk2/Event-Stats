@@ -10,4 +10,9 @@ t/die.t
 t/max.t
 t/nest.t
 t/stats.t
+inc/Devel/AssertOS/MSWin32.pm
+inc/Devel/CheckOS.pm
+inc/Devel/AssertOS/MicrosoftWindows.pm
+inc/Devel/AssertOS/Cygwin.pm
+inc/Devel/AssertOS.pm
 META.yml                                 Module meta-data (added by MakeMaker)

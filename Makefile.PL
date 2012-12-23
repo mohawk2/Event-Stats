@@ -1,5 +1,8 @@
 # This -*- perl -*- script makes the Makefile!
 
+use lib inc;
+use Devel::AssertOS qw(-MicrosoftWindows); # unless you are willing to maintain it
+
 use ExtUtils::MakeMaker;
 use Event::MakeMaker ('event_args');
 
