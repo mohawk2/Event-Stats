@@ -3,7 +3,7 @@ package Event::Stats;
 use Carp;
 use Event 0.53;
 use base ('Exporter', 'DynaLoader');
-our $VERSION = '0.10';
+our $VERSION = '1.00';
 our @EXPORT_OK = qw(round_seconds idle_time total_time);
 
 __PACKAGE__->bootstrap($VERSION);
