@@ -1,6 +1,5 @@
 ChangeLog
 MANIFEST
-MANIFEST.SKIP
 Makefile.PL
 README
 Stats.pm
@@ -15,4 +14,3 @@ inc/Devel/CheckOS.pm
 inc/Devel/AssertOS/MicrosoftWindows.pm
 inc/Devel/AssertOS/Cygwin.pm
 inc/Devel/AssertOS.pm
-META.yml                                 Module meta-data (added by MakeMaker)
