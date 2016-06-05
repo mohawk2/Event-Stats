@@ -1,5 +1,3 @@
-# This -*- perl -*- script makes the Makefile!
-
 use lib inc;
 use Devel::AssertOS qw(-MicrosoftWindows); # unless you are willing to maintain it
 
@@ -8,21 +6,22 @@ use Event::MakeMaker ('event_args');
 
 # Parasoft's Insure++!
 @Safe = (
-	 OPTIMIZE => '-g',
-	 CC => 'insure',
-	 LD => 'insure',
-	)
-    if 0;
+  OPTIMIZE => '-g',
+  CC => 'insure',
+  LD => 'insure',
+) if 0;
 
-my @opt=(PREREQ_PM => { Test => 1,
-			Event => '0.58',
-			'Time::HiRes' => 1.20,
-			'ExtUtils::MakeMaker' => '7.14',
-	 },
-	 VERSION_FROM	=> "lib/Event/Stats.pm",
-	 NAME      	=> "Event::Stats",
-	 XSMULTI => 1,
-	 @Safe,
-	);
+my @opt=(
+  PREREQ_PM => {
+    'Test' => 1,
+    'Event' => '0.58',
+    'Time::HiRes' => 1.20,
+    'ExtUtils::MakeMaker' => '7.14',
+  },
+  VERSION_FROM	=> "lib/Event/Stats.pm",
+  NAME      	=> "Event::Stats",
+  XSMULTI => 1,
+  @Safe,
+);
 
 WriteMakefile(event_args(@opt));
