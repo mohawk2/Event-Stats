@@ -1,6 +1,4 @@
 Event::Stats is the default plug-in to collecting performance
 statistics for Event.
 
-Repository https://gitorious.org/perl-event-stats/perl-event-stats
-
 Also see NetServer::ProcessTop.

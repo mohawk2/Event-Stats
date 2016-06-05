@@ -30,6 +30,16 @@ my @opt=(
   NAME      	=> "Event::Stats",
   XSMULTI => 1,
   @Safe,
+  META_MERGE => {
+    "meta-spec" => { version => 2 },
+    resources => {
+      repository => {
+        type => 'git',
+        url => 'https://github.com/mohawk2/Event-Stats.git',
+        web => 'https://github.com/mohawk2/Event-Stats',
+      },
+    },
+  },
 );
 
 WriteMakefile(event_args(@opt));
