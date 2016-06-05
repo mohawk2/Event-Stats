@@ -11,13 +11,21 @@ use Event::MakeMaker ('event_args');
   LD => 'insure',
 ) if 0;
 
+my %prereqs = (
+  'Event' => '0.58',
+  'Time::HiRes' => 1.20,
+);
+
 my @opt=(
-  PREREQ_PM => {
-    'Test' => 1,
-    'Event' => '0.58',
-    'Time::HiRes' => 1.20,
+  CONFIGURE_REQUIRES => {
+    'Event::MakeMaker' => 0,
     'ExtUtils::MakeMaker' => '7.14',
   },
+  TEST_REQUIRES => {
+    'Test' => 1,
+    %prereqs,
+  },
+  PREREQ_PM => \%prereqs,
   VERSION_FROM	=> "lib/Event/Stats.pm",
   NAME      	=> "Event::Stats",
   XSMULTI => 1,
