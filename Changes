@@ -1,3 +1,13 @@
+1.01 2016-06-05
+  - bring Changes up to date again
+
+1.00 2016-06-05
+  - add github repo metadata
+  - bring Changes up to date
+  - express prereqs more accurately - RT-109732
+  - move to version 1.00 as 0.9 > 0.10 - RT-109731
+  - move to XSMULTI layout
+
 0.10 2012-12-23
   - Devel::AssertOS to not support windows
   - add gitorious repo URL
