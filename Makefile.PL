@@ -16,9 +16,12 @@ use Event::MakeMaker ('event_args');
 
 my @opt=(PREREQ_PM => { Test => 1,
 			Event => '0.58',
-			'Time::HiRes' => 1.20 },
-	 VERSION_FROM	=> "./Stats.pm",
+			'Time::HiRes' => 1.20,
+			'ExtUtils::MakeMaker' => '7.14',
+	 },
+	 VERSION_FROM	=> "lib/Event/Stats.pm",
 	 NAME      	=> "Event::Stats",
+	 XSMULTI => 1,
 	 @Safe,
 	);
 

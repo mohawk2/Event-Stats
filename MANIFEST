@@ -2,8 +2,8 @@ ChangeLog
 MANIFEST
 Makefile.PL
 README
-Stats.pm
-Stats.xs
+lib/Event/Stats.pm
+lib/Event/Stats.xs
 TODO
 t/die.t
 t/max.t
